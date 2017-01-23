@@ -20,7 +20,7 @@
     <div id="label"></div>
 
     <script>
-      const protocols = require('../lib/protocols-renderer');
+      const protocols = require('../index');
       let path = protocols.path('app://kage.jpg');
 
       document.getElementById('label').innerText = path;

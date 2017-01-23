@@ -1,7 +1,7 @@
 'use strict';
 
 const {app, BrowserWindow} = require('electron');
-const protocols = require('../lib/protocols-main');
+const protocols = require('../index');
 
 let win;
 
