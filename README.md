@@ -21,13 +21,16 @@ npm start example
 
 ## Usage
 
+First register your protocol in main process before `app.on('ready')`:
+
 **main process**
 
 ```javascript
-// register a protocol in main process before app.on('ready')
 const protocols = require('electron-protocols');
 protocols.register('app', protocols.basepath(app.getAppPath()));
 ```
+
+Then you can use `protocols.path` to map your protocol to a file path:
 
 **renderer/main process**
 
@@ -38,7 +41,7 @@ const protocols = require('electron-protocols');
 const myModule = require(protocols.path('app://my/module.js'));
 ```
 
-Also, you are free to use protocol in html such as:
+Also, you are free to use protocol in html in renderer process:
 
 ```html
   <img src="app://my/image.png" />
@@ -66,19 +69,17 @@ The `fn` accept an url Object via [url.parse](https://nodejs.org/api/url.html#ur
 Example:
 
 ```javascript
+const {} = require('path');
 const protocols = require('electron-protocols');
 const path = require('path');
 
-let _url2path = base => {
-  return uri => {
-    if ( uri.pathname ) {
-      return path.join( base, uri.host, uri.pathname );
-    }
-    return path.join( base, uri.host );
-  };
-};
-
-protocols.register('app', _url2path(app.getAppPath()));
+protocols.register('app', uri => {
+  let base = app.getAppPath();
+  if ( uri.pathname ) {
+    return path.join( base, uri.host, uri.pathname );
+  }
+  return path.join( base, uri.host );
+});
 ```
 
 ### protocols.path(url)
