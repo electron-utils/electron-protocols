@@ -47,7 +47,7 @@ Also, you are free to use protocol in html such as:
 
 ## FAQ
 
-### What is the benefit to register in renderer process?
+### What is the benefit to register again in renderer process?
 
 It will speed up the search of `protocols.path` by skip calling the remote (ipc-sync) functions.
 
@@ -88,7 +88,7 @@ protocols.register('app', _url2path(app.getAppPath()));
 Convert a url by its protocol to a filesystem path. This function is useful when you try to get
 some internal file. You can use `protocols.register` to register and map your filesystem path to url.
 
-Example
+Example:
 
 ```javascript
 // it will return "{your-app-path}/foobar/foobar.js"
@@ -101,7 +101,7 @@ protocols.path('app://foobar/foobar.js');
 
 A function help you register protocol by `base` path you provide.
 
-Example
+Example:
 
 ```javascript
 protocols.register('app', protocols.basepath(app.getAppPath()));
