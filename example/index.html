@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Panel Example</title>
+    <style> h2 {
+        color: #09f;
+      }
+
+      ui-panel-frame {
+        width: 200px;
+        height: 200px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h2>Protocols Example</h2>
+    <img src="app://kage.jpg" width="300"></img>
+    <div id="label"></div>
+
+    <script>
+      const protocols = require('../lib/protocols-renderer');
+      let path = protocols.path('app://kage.jpg');
+
+      document.getElementById('label').innerText = path;
+    </script>
+  </body>
+</html>

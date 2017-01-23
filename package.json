@@ -1,0 +1,32 @@
+{
+  "name": "electron-protocols",
+  "version": "1.0.0",
+  "description": "Manage file protocols in Electron",
+  "main": "index.js",
+  "scripts": {
+    "start": "node run.js",
+    "test": "mocha test/*.spec.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/electron-utils/electron-protocols.git"
+  },
+  "keywords": [
+    "Electron",
+    "Protocol"
+  ],
+  "author": "jwu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/electron-utils/electron-protocols/issues"
+  },
+  "homepage": "https://github.com/electron-utils/electron-protocols",
+  "dependencies": {
+    "electron-platform": "^1.2.0"
+  },
+  "devDependencies": {
+    "electron": "^1.4.14",
+    "mocha": "^3.2.0",
+    "spectron": "3.4.1"
+  }
+}
