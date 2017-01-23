@@ -45,6 +45,12 @@ Also, you are free to use protocol in html such as:
   <script src="app://my/script.js" />
 ```
 
+## FAQ
+
+### What is the benefit to register again in renderer process?
+
+It will speed up the search of `protocols.path` by skip calling the remote (ipc-sync) functions.
+
 ## API
 
 ### Methods
@@ -100,12 +106,6 @@ Example:
 ```javascript
 protocols.register('app', protocols.basepath(app.getAppPath()));
 ```
-
-## FAQ
-
-### What is the benefit to register again in renderer process?
-
-It will speed up the search of `protocols.path` by skip calling the remote (ipc-sync) functions.
 
 ## License
 
