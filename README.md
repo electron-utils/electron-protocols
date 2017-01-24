@@ -69,7 +69,7 @@ The `fn` accept an url Object via [url.parse](https://nodejs.org/api/url.html#ur
 Example:
 
 ```javascript
-const {} = require('path');
+const {app} = require('electron');
 const protocols = require('electron-protocols');
 const path = require('path');
 
