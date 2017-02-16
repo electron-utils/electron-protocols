@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Electron App</title>
+  </head>
+
+  <body>
+    <div class="label">Testing...</div>
+    <script>
+      const protocols = require('../../../index.js');
+
+      console.log(`${protocols.path('app://foo/foobar.js')}`);
+      console.log(`${protocols.path('app://bar/foobar.js')}`);
+
+      // app://foo/hello.txt
+      let xmlHttp = new XMLHttpRequest();
+      xmlHttp.onreadystatechange = function() {
+        if (xmlHttp.readyState == 4) {
+          console.log(`status = ${xmlHttp.status}, responseText = ${xmlHttp.responseText}`);
+
+          // app://bar/hello.txt
+          let xmlHttp2 = new XMLHttpRequest();
+          xmlHttp2.onreadystatechange = function() {
+            if (xmlHttp2.readyState == 4) {
+              console.log(`status = ${xmlHttp2.status}, responseText = ${xmlHttp2.responseText}`);
+              document.querySelector('.label').innerText = 'Ready';
+            }
+          }
+          xmlHttp2.open('GET', 'app://bar/hello.txt', true);
+          xmlHttp2.send(null);
+        }
+      }
+      xmlHttp.open('GET', 'app://foo/hello.txt', true);
+      xmlHttp.send(null);
+    </script>
+  </body>
+</html>
