@@ -122,7 +122,7 @@ describe('protocol-failed', function () {
         assert.equal(logs.length, 5);
         assert.ok(logs[0].message.indexOf(path.join(appPath,'foo/foobar.js')) !== -1);
         assert.ok(logs[1].message.indexOf('null') !== -1);
-        assert.ok(logs[2].message.indexOf('status = 200, responseText = Hello World!\n') !== -1);
+        assert.ok(logs[2].message.indexOf('status = 200, responseText = Hello World!\\n') !== -1);
         assert.ok(logs[3].message.indexOf('net::ERR_FILE_NOT_FOUND') !== -1);
         assert.ok(logs[4].message.indexOf('status = 0, responseText = ') !== -1);
 
